@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'style.css'%}">
   </head>
   <body>
-    <div class="container">
+<div class="container">
       <h1>articles list</h1>
       <p>here you can find articles</p>
       {% for arg in articles%}
@@ -15,6 +15,6 @@
       <p>{{arg.snippet}}</p>
       <p>{{arg.date}}</p>
       {% endfor %}
-    </div>
+</div>
   </body>
 </html>
