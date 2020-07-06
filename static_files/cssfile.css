@@ -1,7 +1,9 @@
 body {
   background-color: #0f121f;
-  background-image:url(/static/hacker.jpg);
+  background-image:url(stars.jpg);
   color:#fff;
+  background-repeat-y:no-repeat;
+  background-attachment: fixed;
 }
 body *{
   font-family:arial;

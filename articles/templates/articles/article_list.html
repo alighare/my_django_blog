@@ -1,20 +1,14 @@
-{% load static%}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>articles list</title>
-    <link rel="stylesheet" href="{% static 'style.css'%}">
-  </head>
-  <body>
-<div class="container">
+{% extends "base.html"%}
+{% block title%}
+articles
+{%endblock%}
+
+{%block content%}
       <h1>articles list</h1>
       <p>here you can find articles</p>
       {% for arg in articles%}
-      <h2><a href="#">{{arg.title}}</a></h2>
+      <h2><a href="{%url 'articles:detail' slug=arg.slug%}">{{arg.title}}</a></h2>
       <p>{{arg.snippet}}</p>
       <p>{{arg.date}}</p>
       {% endfor %}
-</div>
-  </body>
-</html>
+{% endblock %}
