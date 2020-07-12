@@ -4,11 +4,15 @@ articles
 {%endblock%}
 
 {%block content%}
-      <h1>articles list</h1>
-      <p>here you can find articles</p>
+      <h1 class="articlelist">articles list</h1>
+    <div class="articles">
       {% for arg in articles%}
-      <h2><a href="{%url 'articles:detail' slug=arg.slug%}">{{arg.title}}</a></h2>
-      <p>{{arg.snippet}}</p>
-      <p>{{arg.date}}</p>
+      <div class="article">
+        <h2><a href="{%url 'articles:detail' slug=arg.slug%}">{{arg.title}}</a></h2>
+        <p>{{arg.snippet}}</p>
+        <p>{{arg.date}}</p>
+        <p class='author'> added by {{ arg.author.username }}</p>
+      </div>
       {% endfor %}
+    </div>
 {% endblock %}

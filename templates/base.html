@@ -11,30 +11,32 @@
     <link rel="stylesheet" href="{%static 'cssfile.css'%}">
   </head>
   <body>
-    <h2><a href="{% url 'articles:list'%}">LOGO</a></h2>
-    <nav>
-      <ul>
-        {% if user.is_authenticated %}
-        <li>
-          <form class="logout_link" action="{% url 'user_accounts:logout' %}" method="post">
-            {% csrf_token %}
-          <button type="submit">logout</button>
-          </form>
-        </li>
-        <li>
-          <a href="{% url 'articles:create' %}">create your own article</a>
-        </li>
-        {% else %}
-        <li>
-          <a href="{% url 'user_accounts:login' %}">login</a>
-        </li>
-        <li>
-          <a href="{% url 'user_accounts:signup' %}">signup</a>
-        </li>
+    <header>
+      <nav>
+        <ul>
+          <li><a class="logo" href="{% url 'articles:list'%}">LOGO</a></li>
+          {% if user.is_authenticated %}
+          <li>
+            <form class="logout_link" action="{% url 'user_accounts:logout' %}" method="post">
+              {% csrf_token %}
+            <button type="submit">logout</button>
+            </form>
+          </li>
+          <li>
+            <a class="highlight" href="{% url 'articles:create' %}">create your own article</a>
+          </li>
+          {% else %}
+          <li>
+            <a class="login" href="{% url 'user_accounts:login' %}">login</a>
+          </li>
+          <li>
+            <a class="signup" href="{% url 'user_accounts:signup' %}">signup</a>
+          </li>
 
-        {% endif %}
-      </ul>
-    </nav>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
     <div class="wrapper">
       {%block content%}
 
